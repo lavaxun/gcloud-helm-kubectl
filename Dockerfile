@@ -25,6 +25,7 @@ RUN apk add --update ca-certificates \
     && tar -zxvf /tmp/${HELM_ARCHIVE} -C /tmp \
     && mv /tmp/linux-amd64/helm /usr/local/bin/helm \
     && echo "${HELM_SHA256}  /usr/local/bin/helm" | sha256sum -c \
+    && mv /tmp/linux-amd64/tiller /usr/local/bin/tiller \    
     && apk del --purge deps \
     && rm /var/cache/apk/* \
     && rm -rf /tmp/*
